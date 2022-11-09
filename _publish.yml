@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: e2ef053a-80b9-486b-8185-901b4d80deaa
+      url: 'https://quartopub.com/sites/dpalmz/meandering-around-machine-learning'

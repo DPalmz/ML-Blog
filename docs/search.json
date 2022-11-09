@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
+    "objectID": "docs/test.html",
+    "href": "docs/test.html",
+    "title": "Meandering Around Machine Learning",
+    "section": "",
+    "text": "test"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "My Experience With Summarization\n\n\n\n\n\n\n\nnlp\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nNov 9, 2022\n\n\nDylan Palmer\n\n\n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nNov 4, 2022\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nNov 1, 2022\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/My-Experience-With-Summarization/index.html",
+    "href": "posts/My-Experience-With-Summarization/index.html",
+    "title": "My Experience With Summarization",
+    "section": "",
+    "text": "Simple is Hard, Summarization is Harder\nFor all of machine learning, one of the most interesting domains of it to me is Natural Language Processing (NLP). This interest stems partially from my fascination with stories and language. I don’t think I’ll ever be an author, but maybe I can use that knowledge and excitement with technology, I tell myself.\nFor a bit of background, NLP has a few main tasks that it is broken up into: Translation, Classification, Question Answering, and what I tried, Summarization. Now, this post will not be a tutorial or a how-to. There are much better sources out there.\nInstead, I just wanted to document (complain) my process of trying to get a summarization model trained and ready.\nMy journey started around 6 months ago, when I decided to try creating a document summarizer. As the most accessible way I knew to do this was using Huggingface’s summarization example, that’s what I tried to get working first.\nSince it has a jupyter notebook, I started by opening it in Google Colab. While most of it ran just fine, the training portion ended in failure due to how big the Amazon dataset is as well as the lack of GPU. Next, I tried downloading it locally and making some small changes for increased performance. I played around with which pretrained model I was using, to see if that made a difference, as well as taking a sample of that data to train on less data overall.\nIt ran better on my computer but after an epoch or two my GPU ran out of ran out of memory. Alright, that’s ok, I can reduce the batch size, see if that helps, but no, my 8 GB was just not enough. Well, fine, I was still determined to keep going, so I tried using (and learning) Google Cloud Platform (GCP). That was a learning curve in itself but actually using it was pretty interesting and really my first foray into using cloud services.\nDespite the 12 GB GPU RAM, I still managed to get some out of memory results. Some finagling was required to get it running…. only to some pretty horrible results. I didn’t know how to code automated hyperparameter searching at the time so I just… tried some things and honestly almost none of my changes did a whole lot to my ROUGE score (metric used for evaluating NLP) or error rate. Overall, a pretty miserable learning experience. I was exhausted and had little to show. I wiped my hands of it and shelved the project.\nFast forward to… a couple weeks ago. I started the fastai class and it really renewed my interest in experimentation. So, I dusted off the summarization code to see if I could do better this time, only to be met with another slew of issues. This time, I began on Kaggle. Originally, I intended to use a model from huggingface and then train it using fastai, but I ran into a few problems.\nThe first is that fastai has limited datasets and none of them are for summarization. No problem, huggingface has plenty. Unfortunately, this caused two more issues. The first being the fastai transformers example assumes a use of their own datasets and I didn’t feel like fumbling around with getting the huggingface data to work with it. So, no more fastai for now. A more pressing issue, apparently there’s some sort of bug with Kaggle where when you use a GPU and the huggingface datasets library, it raises and error telling you one of the required libraries isn’t updated. I couldn’t solve this consistently, so… no more Kaggle.\nI did try my computer again out of a vain hope, but no, still not enough GPU RAM. It was off to Paperspace. Now, this was my first experience with Paperspace and I would say that experience was… mixed. There was never free GPUs available, I kept getting disconnected from my workspace. A whole mess. I’ve gotten most of that figured out for the moment, but it still left a sour taste in my mouth. Anyway, I once I got things up and running on Paperspace, it was going smoothly. I ended up copying the huggingface summarization code again, except this time without the extra translation bits and a different dataset and model. It was honestly going pretty well till the final nail in the coffin, training, again, ran out of GPU memory, despite having 16 GB this time.\nSeeing that, I gave up for real. If 16 GB isn’t enough to train summarization without having to use special techniques to optimize RAM usage, then maybe it’s just a side of NLP that’s out of reach for anyone not using multiple GPUs. While I’m not giving up on NLP as a whole, I don’t think I will try summarization again any time soon."
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code."
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  }
+]
